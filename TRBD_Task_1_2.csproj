@@ -46,10 +46,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddJob.Designer.cs">
+      <DependentUpon>AddJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddWorker.Designer.cs">
+      <DependentUpon>AddWorker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteJob.Designer.cs">
+      <DependentUpon>DeleteJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="deleteWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="deleteWorker.Designer.cs">
+      <DependentUpon>deleteWorker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ds.cs">
+      <DependentUpon>ds.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ds.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EditJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditJob.Designer.cs">
+      <DependentUpon>EditJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditWorker.Designer.cs">
+      <DependentUpon>EditWorker.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -59,6 +98,27 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddJob.resx">
+      <DependentUpon>AddJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddWorker.resx">
+      <DependentUpon>AddWorker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteJob.resx">
+      <DependentUpon>DeleteJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="deleteWorker.resx">
+      <DependentUpon>deleteWorker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditJob.resx">
+      <DependentUpon>EditJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditWorker.resx">
+      <DependentUpon>EditWorker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
