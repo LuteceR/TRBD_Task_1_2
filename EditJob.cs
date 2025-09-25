@@ -12,35 +12,87 @@ namespace TRBD_Task_1_2
 {
     public partial class EditJob : Form
     {
-        public EditJob()
+        public DataGridViewCellCollection selectedRowCollection;
+
+        public EditJob(object sender, EventArgs e, DataGridViewCellCollection selectedRowCollection)
         {
             InitializeComponent();
+
+            this.selectedRowCollection = selectedRowCollection;
+
+            //MessageBox.Show(this.selectedRowCollection[0].Value.ToString());
+
+            ds ds = new ds();
+            string ps;
+
+            //MessageBox.Show($"{this.selectedRowCollection[0].Value}");
+
+            try
+            {
+                ds.ReadXml("dataset.xml", XmlReadMode.IgnoreSchema);
+                DataRow[] rows = ds.Worker.Select($"ID_Worker = '{this.selectedRowCollection[0].Value}'");
+                string pasport_data = (String)rows[0]["pasport_data"];
+                newPasport1.Text = pasport_data.Substring(0, 4);
+                newPasport2.Text = pasport_data.Substring(5, 6);
+            }
+            catch
+            {
+                MessageBox.Show("Не удалось найти ответственного работника");
+            }
+
+            newStart_yy.Text = this.selectedRowCollection[1].Value.ToString().Substring(0, 4);
+            newStart_mm.Text = this.selectedRowCollection[1].Value.ToString().Substring(5, 2);
+            newStart_dd.Text = this.selectedRowCollection[1].Value.ToString().Substring(8, 2);
+            newEnd_yy.Text = this.selectedRowCollection[2].Value.ToString().Substring(1, 4);
+            newEnd_mm.Text = this.selectedRowCollection[2].Value.ToString().Substring(5, 2);
+            newEnd_dd.Text = this.selectedRowCollection[2].Value.ToString().Substring(8, 2);
+            newDescription.Text = this.selectedRowCollection[3].Value.ToString();
         }
 
         private void save_Click(object sender, EventArgs e)
         {
             ds ds = new ds();
             ds.ReadXml("dataset.xml", XmlReadMode.IgnoreSchema);
-            
+
             // чтение данных, введённых пользователем
-            string pasport = oldPasport1.Text + " " + oldPasport2.Text;
-            string start_date = oldStart_yy.Text + "." + oldStart_mm.Text + "." + oldStart_dd.Text;
-            string end_date = oldEnd_yy.Text + "." + oldEnd_mm.Text + "." + oldEnd_dd.Text;
-            string desc = oldDescription.Text;
+
+            try
+            {
+                ds.ReadXml("dataset.xml", XmlReadMode.IgnoreSchema);
+                DataRow[] rows = ds.Worker.Select($"ID_Worker = '{this.selectedRowCollection[0].Value}'");
+                string pasport_data = (String)rows[0]["pasport_data"];
+                newPasport1.Text = pasport_data.Substring(0, 4);
+                newPasport2.Text = pasport_data.Substring(5, 6);
+            }
+            catch
+            {
+                MessageBox.Show("Не удалось найти ответственного работника");
+            }
+
+            string start_date = this.selectedRowCollection[1].Value.ToString().Substring(0, 4) + "." + this.selectedRowCollection[1].Value.ToString().Substring(5, 2) + "." + this.selectedRowCollection[1].Value.ToString().Substring(8, 2);
+            string end_date = this.selectedRowCollection[2].Value.ToString().Substring(1, 4) + "." + this.selectedRowCollection[2].Value.ToString().Substring(5, 2) + "." + this.selectedRowCollection[2].Value.ToString().Substring(8, 2);
+            string desc = this.selectedRowCollection[3].Value.ToString();
 
             string newPasport = newPasport1.Text + " " + newPasport2.Text;
             string newStart_date = newStart_yy.Text + "." + newStart_mm.Text + "." + newStart_dd.Text;
             string newEnd_date = newEnd_yy.Text + "." + newEnd_mm.Text + "." + newEnd_dd.Text;
             string newDesc = newDescription.Text;
 
-            // нахождение рабочих с заданными паспортными данными
-            DataRow[] oldWorkers = ds.Worker.Select($"pasport_data = '{pasport}'");
-            DataRow[] newWorkers = ds.Worker.Select($"pasport_data = '{newPasport}'");            
+            if (!EditWorker.CheckDataCorrect(newStart_dd.Text, newStart_mm.Text, newStart_yy.Text))
+            {
+                MessageBox.Show("Некорректная дата");
+                return;
+            }
 
-            if (oldWorkers.Length != 1 && newWorkers.Length != 1) 
+            // нахождение рабочих с заданными паспортными данными
+            DataRow[] oldWorkers = ds.Worker.Select($"pasport_data = '{this.selectedRowCollection[0].Value.ToString().Substring(0, 4)} {this.selectedRowCollection[1].Value.ToString().Substring(5, 6)}'");
+            DataRow[] newWorkers = ds.Worker.Select($"pasport_data = '{newPasport}'");
+
+            if (oldWorkers.Length != 1 && newWorkers.Length != 1)
             {
                 MessageBox.Show("Ошибка: сотрудник с такими паспортными данными не найден");
-            } else
+            }
+            else
             {
                 int oldID_Worker = Convert.ToInt32(oldWorkers[0]["ID_Worker"].ToString());
                 int newID_Worker = Convert.ToInt32(newWorkers[0]["ID_Worker"].ToString());

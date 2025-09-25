@@ -39,6 +39,12 @@ namespace TRBD_Task_1_2
             string snils = SNILS.Text;
             string pasport = pasport1.Text + " " + pasport2.Text;
 
+            if (!EditWorker.CheckDataCorrect(dob_year.Text, dob_month.Text, dob_day.Text))
+            {
+                MessageBox.Show("Некорректная дата");
+                return;
+            }
+
             if (pasport.Length != 10 && snils.Length != 11 && inn.Length != 12)
             {
                 MessageBox.Show("Ошибка: не доконца введённые даннные");

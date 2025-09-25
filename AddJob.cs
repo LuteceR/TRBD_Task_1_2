@@ -33,6 +33,12 @@ namespace TRBD_Task_1_2
             string end_date = end_yy.Text + "." + end_mm.Text + "." + end_dd.Text;
             string desc = description.Text;
 
+            if (!EditWorker.CheckDataCorrect(start_yy.Text, start_mm.Text, start_dd.Text) || !EditWorker.CheckDataCorrect(end_yy.Text, end_mm.Text, end_dd.Text))
+            {
+                MessageBox.Show("Некорректная дата");
+                return;
+            }
+
             // поиск работника по его паспортным данным и сохранение его id
             DataRow[] rows = ds.Worker.Select($"pasport_data = '{pasport}'");
 

@@ -77,6 +77,8 @@ namespace TRBD_Task_1_2
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(569, 215);
             this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             // 
             // dataGridView2
             // 
@@ -99,6 +101,7 @@ namespace TRBD_Task_1_2
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(569, 215);
             this.dataGridView2.TabIndex = 7;
+            this.dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             // 
             // editworkerbtn
             // 

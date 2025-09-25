@@ -19,29 +19,16 @@ namespace TRBD_Task_1_2
 
             // объявление dataset'а
             var ds = new ds();
-            ds.ReadXml("dataset.xml", XmlReadMode.IgnoreSchema);
 
-            //// создание базовых записей
-            //
-            //var newRowWorker = ds.Worker.NewWorkerRow();
-            //newRowWorker.full_name = "Иванов Иван Иванович";
-            //newRowWorker.date_of_birth = "1998.06.23";
-            //newRowWorker.INN = "123456789101";
-            //newRowWorker.SNILS = "12345678911";
-            //newRowWorker.pasport_data = "1234 567890";
-            //ds.Worker.AddWorkerRow(newRowWorker);
-
-            //var newRowJob = ds.Job.NewJobRow();
-            //newRowJob.ID_Worker = 1;
-            //newRowJob.start_date = "2023.07.22";
-            //newRowJob.end_date = "2023.08.12";
-            //newRowJob.description = "проектировании и создание базы данных";
-            //ds.Job.AddJobRow(newRowJob);
-
-            //// файл dataset.xml храниться в bin\debug\ вместе с .exe файлом
-            //// запись изменений в xml файл с данными
-            //ds.WriteXml("dataset.xml", XmlWriteMode.IgnoreSchema);
-
+            try
+            {
+                ds.ReadXml("dataset.xml", XmlReadMode.IgnoreSchema);
+            } 
+            catch
+            {
+                ds.WriteXml("dataset.xml", XmlWriteMode.IgnoreSchema);
+            }
+            
             // вывод БД на экран с переименованными столбцами
             string[] namesForWorkers = new string[5] {"ФИО работника", "Дата рождения", "ИНН", "СНИЛС", "Паспортные данные"};
             dataGridView1.DataSource = ds.Worker.DefaultView.ToTable(false, "full_name", "date_of_birth", "INN", "SNILS", "pasport_data");
@@ -55,7 +42,8 @@ namespace TRBD_Task_1_2
             dataGridView1.Columns["full_name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             string[] namesForJobs = new string[3] {"Начало работы", "Конец работы", "Описание"};
-            dataGridView2.DataSource = ds.Job.DefaultView.ToTable(false, "start_date", "end_date", "description");
+            dataGridView2.DataSource = ds.Job.DefaultView.ToTable(false, "ID_Worker", "start_date", "end_date", "description");
+            dataGridView2.Columns["ID_Worker"].Visible = false;
 
             for (int i = 0; i < namesForJobs.Length; i++)
             {
@@ -91,8 +79,11 @@ namespace TRBD_Task_1_2
 
         private void editworkerbtn_Click(object sender, EventArgs e)
         {
-            EditWorker editworker = new EditWorker();
+            DataGridViewCellCollection rows = dataGridView1.SelectedRows[0].Cells;
+
+            EditWorker editworker = new EditWorker(sender, e, rows);
             editworker.ShowDialog();
+
 
             // обновление данных в datagridview1
             var ds = new ds();
@@ -150,7 +141,9 @@ namespace TRBD_Task_1_2
 
         private void editjobbtn_Click(object sender, EventArgs e)
         {
-            EditJob editjob = new EditJob();
+            DataGridViewCellCollection rows = dataGridView2.SelectedRows[0].Cells;
+
+            EditJob editjob = new EditJob(sender, e, rows);
             editjob.ShowDialog();
 
             // обновление данных в datagridview1
