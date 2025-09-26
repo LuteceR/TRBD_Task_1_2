@@ -58,18 +58,6 @@
     <Compile Include="AddWorker.Designer.cs">
       <DependentUpon>AddWorker.cs</DependentUpon>
     </Compile>
-    <Compile Include="DeleteJob.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DeleteJob.Designer.cs">
-      <DependentUpon>DeleteJob.cs</DependentUpon>
-    </Compile>
-    <Compile Include="deleteWorker.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="deleteWorker.Designer.cs">
-      <DependentUpon>deleteWorker.cs</DependentUpon>
-    </Compile>
     <Compile Include="ds.cs">
       <DependentUpon>ds.xsd</DependentUpon>
     </Compile>
@@ -103,12 +91,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddWorker.resx">
       <DependentUpon>AddWorker.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DeleteJob.resx">
-      <DependentUpon>DeleteJob.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="deleteWorker.resx">
-      <DependentUpon>deleteWorker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditJob.resx">
       <DependentUpon>EditJob.cs</DependentUpon>

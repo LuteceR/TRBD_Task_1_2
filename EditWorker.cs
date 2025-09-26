@@ -20,14 +20,22 @@ namespace TRBD_Task_1_2
             InitializeComponent();
             this.selectedRowCollection = selectedRowCollection;
 
-            newFull_name.Text = this.selectedRowCollection[0].Value.ToString();
-            newDob_year.Text = this.selectedRowCollection[1].Value.ToString().Substring(0, 4);
-            newDob_month.Text = this.selectedRowCollection[1].Value.ToString().Substring(5, 2);
-            newDob_day.Text = this.selectedRowCollection[1].Value.ToString().Substring(8, 2);
-            newINN.Text = this.selectedRowCollection[2].Value.ToString();
-            newSNILS.Text = this.selectedRowCollection[3].Value.ToString();
-            newPasport1.Text = this.selectedRowCollection[3].Value.ToString().Substring(0, 4);
-            newPasport2.Text = this.selectedRowCollection[3].Value.ToString().Substring(5, 6);
+
+            try
+            {
+                newFull_name.Text = this.selectedRowCollection[0].Value.ToString();
+                newDob_year.Text = this.selectedRowCollection[1].Value.ToString().Substring(0, 4);
+                newDob_month.Text = this.selectedRowCollection[1].Value.ToString().Substring(5, 2);
+                newDob_day.Text = this.selectedRowCollection[1].Value.ToString().Substring(8, 2);
+                newINN.Text = this.selectedRowCollection[2].Value.ToString();
+                newSNILS.Text = this.selectedRowCollection[3].Value.ToString();
+                newPasport1.Text = this.selectedRowCollection[3].Value.ToString().Substring(0, 4);
+                newPasport2.Text = this.selectedRowCollection[3].Value.ToString().Substring(5, 6);
+            }
+            catch
+            {
+                MessageBox.Show("Не выбран сотрудник");
+            }
         }
 
         public static bool CheckWorkerDataUnique(string inn, string snils, string pasport)
@@ -44,24 +52,40 @@ namespace TRBD_Task_1_2
             }
         }
 
-        public static bool CheckDataCorrect(string dayText, string monthText, string yearText)
+        public static bool CheckDataCorrect(string dayText, string monthText, string yearText, bool worker = false)
         {
             int day;
             int month;
             int year;
 
+            DateTime currentDateTime = DateTime.Now;
+            int currentYear = currentDateTime.Year;
+
+            if (monthText.Substring(0,1) == "0")
+            {
+                monthText = monthText.Substring(1,1);
+            }
+
+            if (dayText.Substring(0, 1) == "0")
+            {
+                dayText = dayText.Substring(1, 1);
+            }
+
+            if (!(dayText.All(char.IsDigit) & monthText.All(char.IsDigit) & yearText.All(char.IsDigit)))
+            {
+                MessageBox.Show("Некорректная дата");
+            }
             Int32.TryParse(dayText, out day);
             Int32.TryParse(monthText, out month);
             Int32.TryParse(yearText, out year);
 
-            // проверка корректности дат
-            if ((day < 1 || day > 31) || (month < 1 || month > 12) || (year < 1900 || year > 2025))
+            if (worker)
             {
-                return false;
+                return ((day > 0 & day < 32) & (month > 0 & month < 13) & (year > 1901 & year < currentYear - 17));
             }
             else
             {
-                return true;
+                return ((day > 0 & day < 32) & (month > 0 & month < 13) & (year > 1901));
             }
         }
 
@@ -77,10 +101,16 @@ namespace TRBD_Task_1_2
             string pasport = this.selectedRowCollection[4].Value.ToString();
 
             string new_fullname = newFull_name.Text;
-            string new_dob = newDob_year.Text + "." + newDob_month.Text + "." + newDob_day.Text;
+            string new_dob = newDob_day.Text + "-" + newDob_month.Text + "-" + newDob_year.Text;
             string new_inn = newINN.Text;
             string new_snils = newSNILS.Text;
             string new_pasport = newPasport1.Text + " " + newPasport2.Text;
+
+            if (!(new_inn.All(char.IsDigit) & new_snils.All(char.IsDigit) & newPasport1.Text.All(char.IsDigit) & newPasport2.Text.All(char.IsDigit)))
+            {
+                MessageBox.Show("ИНН, СНИЛС и паспорт могут содержать только цифры");
+                return;
+            }
 
             // чтение данных из dataset.xml
             dataset.ReadXml("dataset.xml", XmlReadMode.IgnoreSchema);

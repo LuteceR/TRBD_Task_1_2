@@ -108,7 +108,7 @@
             // dob_year
             // 
             this.dob_year.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.dob_year.Location = new System.Drawing.Point(212, 121);
+            this.dob_year.Location = new System.Drawing.Point(330, 119);
             this.dob_year.MaxLength = 4;
             this.dob_year.Name = "dob_year";
             this.dob_year.Size = new System.Drawing.Size(56, 26);
@@ -118,7 +118,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label3.Location = new System.Drawing.Point(274, 127);
+            this.label3.Location = new System.Drawing.Point(255, 122);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(13, 20);
             this.label3.TabIndex = 7;
@@ -127,7 +127,7 @@
             // dob_month
             // 
             this.dob_month.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.dob_month.Location = new System.Drawing.Point(290, 121);
+            this.dob_month.Location = new System.Drawing.Point(271, 119);
             this.dob_month.MaxLength = 2;
             this.dob_month.Name = "dob_month";
             this.dob_month.Size = new System.Drawing.Size(34, 26);
@@ -136,7 +136,7 @@
             // dob_day
             // 
             this.dob_day.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.dob_day.Location = new System.Drawing.Point(346, 121);
+            this.dob_day.Location = new System.Drawing.Point(215, 119);
             this.dob_day.MaxLength = 2;
             this.dob_day.Name = "dob_day";
             this.dob_day.Size = new System.Drawing.Size(34, 26);
@@ -146,7 +146,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label4.Location = new System.Drawing.Point(330, 127);
+            this.label4.Location = new System.Drawing.Point(311, 122);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(13, 20);
             this.label4.TabIndex = 10;
@@ -155,7 +155,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(229, 105);
+            this.label5.Location = new System.Drawing.Point(347, 103);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(19, 13);
             this.label5.TabIndex = 11;
@@ -164,7 +164,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(294, 105);
+            this.label6.Location = new System.Drawing.Point(275, 103);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(25, 13);
             this.label6.TabIndex = 12;
@@ -173,7 +173,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(350, 105);
+            this.label7.Location = new System.Drawing.Point(224, 103);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(25, 13);
             this.label7.TabIndex = 13;

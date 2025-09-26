@@ -154,7 +154,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(352, 111);
+            this.label15.Location = new System.Drawing.Point(218, 108);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(25, 13);
             this.label15.TabIndex = 53;
@@ -163,7 +163,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(296, 111);
+            this.label16.Location = new System.Drawing.Point(274, 108);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(25, 13);
             this.label16.TabIndex = 52;
@@ -172,7 +172,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(231, 111);
+            this.label17.Location = new System.Drawing.Point(347, 108);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(19, 13);
             this.label17.TabIndex = 51;
@@ -182,7 +182,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label18.Location = new System.Drawing.Point(332, 133);
+            this.label18.Location = new System.Drawing.Point(311, 130);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(13, 20);
             this.label18.TabIndex = 50;
@@ -191,7 +191,7 @@
             // newDob_day
             // 
             this.newDob_day.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.newDob_day.Location = new System.Drawing.Point(348, 127);
+            this.newDob_day.Location = new System.Drawing.Point(214, 124);
             this.newDob_day.MaxLength = 2;
             this.newDob_day.Name = "newDob_day";
             this.newDob_day.Size = new System.Drawing.Size(34, 26);
@@ -200,7 +200,7 @@
             // newDob_month
             // 
             this.newDob_month.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.newDob_month.Location = new System.Drawing.Point(292, 127);
+            this.newDob_month.Location = new System.Drawing.Point(270, 124);
             this.newDob_month.MaxLength = 2;
             this.newDob_month.Name = "newDob_month";
             this.newDob_month.Size = new System.Drawing.Size(34, 26);
@@ -210,7 +210,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label19.Location = new System.Drawing.Point(276, 133);
+            this.label19.Location = new System.Drawing.Point(254, 130);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(13, 20);
             this.label19.TabIndex = 47;
@@ -219,7 +219,7 @@
             // newDob_year
             // 
             this.newDob_year.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.newDob_year.Location = new System.Drawing.Point(214, 127);
+            this.newDob_year.Location = new System.Drawing.Point(330, 124);
             this.newDob_year.MaxLength = 4;
             this.newDob_year.Name = "newDob_year";
             this.newDob_year.Size = new System.Drawing.Size(56, 26);

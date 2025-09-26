@@ -39,6 +39,12 @@ namespace TRBD_Task_1_2
                 return;
             }
 
+            if (!(pasport1.Text.All(char.IsDigit) & pasport2.Text.All(char.IsDigit)))
+            {
+                MessageBox.Show("Паспорт может содержать только цифры");
+                return;
+            }
+
             // поиск работника по его паспортным данным и сохранение его id
             DataRow[] rows = ds.Worker.Select($"pasport_data = '{pasport}'");
 

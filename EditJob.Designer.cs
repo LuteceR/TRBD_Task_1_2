@@ -120,7 +120,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(392, 162);
+            this.label16.Location = new System.Drawing.Point(280, 162);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(25, 13);
             this.label16.TabIndex = 133;
@@ -138,7 +138,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(271, 162);
+            this.label18.Location = new System.Drawing.Point(405, 165);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(19, 13);
             this.label18.TabIndex = 131;
@@ -148,7 +148,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.label19.Location = new System.Drawing.Point(372, 184);
+            this.label19.Location = new System.Drawing.Point(367, 184);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(13, 20);
             this.label19.TabIndex = 130;
@@ -157,7 +157,7 @@
             // newEnd_dd
             // 
             this.newEnd_dd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.newEnd_dd.Location = new System.Drawing.Point(388, 178);
+            this.newEnd_dd.Location = new System.Drawing.Point(276, 178);
             this.newEnd_dd.MaxLength = 2;
             this.newEnd_dd.Name = "newEnd_dd";
             this.newEnd_dd.Size = new System.Drawing.Size(34, 26);
@@ -185,7 +185,7 @@
             // newEnd_yy
             // 
             this.newEnd_yy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.newEnd_yy.Location = new System.Drawing.Point(254, 178);
+            this.newEnd_yy.Location = new System.Drawing.Point(388, 181);
             this.newEnd_yy.MaxLength = 4;
             this.newEnd_yy.Name = "newEnd_yy";
             this.newEnd_yy.Size = new System.Drawing.Size(56, 26);
@@ -224,7 +224,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(392, 96);
+            this.label28.Location = new System.Drawing.Point(280, 93);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(25, 13);
             this.label28.TabIndex = 122;
@@ -242,7 +242,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(271, 96);
+            this.label30.Location = new System.Drawing.Point(405, 96);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(19, 13);
             this.label30.TabIndex = 120;
@@ -261,7 +261,7 @@
             // newStart_dd
             // 
             this.newStart_dd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.newStart_dd.Location = new System.Drawing.Point(388, 112);
+            this.newStart_dd.Location = new System.Drawing.Point(276, 109);
             this.newStart_dd.MaxLength = 2;
             this.newStart_dd.Name = "newStart_dd";
             this.newStart_dd.Size = new System.Drawing.Size(34, 26);
@@ -289,7 +289,7 @@
             // newStart_yy
             // 
             this.newStart_yy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.newStart_yy.Location = new System.Drawing.Point(254, 112);
+            this.newStart_yy.Location = new System.Drawing.Point(388, 112);
             this.newStart_yy.MaxLength = 4;
             this.newStart_yy.Name = "newStart_yy";
             this.newStart_yy.Size = new System.Drawing.Size(56, 26);

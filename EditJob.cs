@@ -40,13 +40,20 @@ namespace TRBD_Task_1_2
                 MessageBox.Show("Не удалось найти ответственного работника");
             }
 
-            newStart_yy.Text = this.selectedRowCollection[1].Value.ToString().Substring(0, 4);
-            newStart_mm.Text = this.selectedRowCollection[1].Value.ToString().Substring(5, 2);
-            newStart_dd.Text = this.selectedRowCollection[1].Value.ToString().Substring(8, 2);
-            newEnd_yy.Text = this.selectedRowCollection[2].Value.ToString().Substring(1, 4);
-            newEnd_mm.Text = this.selectedRowCollection[2].Value.ToString().Substring(5, 2);
-            newEnd_dd.Text = this.selectedRowCollection[2].Value.ToString().Substring(8, 2);
-            newDescription.Text = this.selectedRowCollection[3].Value.ToString();
+            try
+            {
+                newStart_yy.Text = this.selectedRowCollection[1].Value.ToString().Substring(0, 4);
+                newStart_mm.Text = this.selectedRowCollection[1].Value.ToString().Substring(5, 2);
+                newStart_dd.Text = this.selectedRowCollection[1].Value.ToString().Substring(8, 2);
+                newEnd_yy.Text = this.selectedRowCollection[2].Value.ToString().Substring(1, 4);
+                newEnd_mm.Text = this.selectedRowCollection[2].Value.ToString().Substring(5, 2);
+                newEnd_dd.Text = this.selectedRowCollection[2].Value.ToString().Substring(8, 2);
+                newDescription.Text = this.selectedRowCollection[3].Value.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Не выбрана работа");
+            }
         }
 
         private void save_Click(object sender, EventArgs e)
@@ -67,6 +74,7 @@ namespace TRBD_Task_1_2
             catch
             {
                 MessageBox.Show("Не удалось найти ответственного работника");
+                return;
             }
 
             string start_date = this.selectedRowCollection[1].Value.ToString().Substring(0, 4) + "." + this.selectedRowCollection[1].Value.ToString().Substring(5, 2) + "." + this.selectedRowCollection[1].Value.ToString().Substring(8, 2);
@@ -74,13 +82,25 @@ namespace TRBD_Task_1_2
             string desc = this.selectedRowCollection[3].Value.ToString();
 
             string newPasport = newPasport1.Text + " " + newPasport2.Text;
-            string newStart_date = newStart_yy.Text + "." + newStart_mm.Text + "." + newStart_dd.Text;
-            string newEnd_date = newEnd_yy.Text + "." + newEnd_mm.Text + "." + newEnd_dd.Text;
+            string newStart_date = newStart_dd.Text + "-" + newStart_mm.Text + "-" + newStart_yy.Text;
+            string newEnd_date = newEnd_dd.Text + "-" + newEnd_mm.Text + "-" + newEnd_yy.Text;
             string newDesc = newDescription.Text;
+
+            if (!(newPasport1.Text.All(char.IsDigit) & newPasport2.Text.All(char.IsDigit)))
+            {
+                MessageBox.Show("Паспорт может содержать только цифры");
+                return;
+            }
 
             if (!EditWorker.CheckDataCorrect(newStart_dd.Text, newStart_mm.Text, newStart_yy.Text))
             {
                 MessageBox.Show("Некорректная дата");
+                return;
+            }
+
+            if (!(newPasport1.Text.All(char.IsDigit) & newPasport2.Text.All(char.IsDigit)))
+            {
+                MessageBox.Show("Паспорт может содержать только цифры");
                 return;
             }
 

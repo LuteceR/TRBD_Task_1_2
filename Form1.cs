@@ -80,7 +80,7 @@ namespace TRBD_Task_1_2
         private void editworkerbtn_Click(object sender, EventArgs e)
         {
             DataGridViewCellCollection rows = dataGridView1.SelectedRows[0].Cells;
-
+            
             EditWorker editworker = new EditWorker(sender, e, rows);
             editworker.ShowDialog();
 
@@ -102,13 +102,29 @@ namespace TRBD_Task_1_2
 
         private void deleteworkerbtn_Click(object sender, EventArgs e)
         {
-            DeleteWorker deleteworker = new DeleteWorker();
-            deleteworker.ShowDialog();
-
-            // обновление данных в datagridview1
             var ds = new ds();
             ds.ReadXml("dataset.xml", XmlReadMode.IgnoreSchema);
 
+            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+            ds.Worker.Rows.RemoveAt(selectedRow.Index);
+
+            // обновление id
+            // отключаю ограничения, чтобы можно было выставить id без ошибок об уникальности
+            ds.EnforceConstraints = false;
+
+            int id = 0;
+
+            foreach (DataRow row in ds.Worker.Rows)
+            {
+                row["ID_Worker"] = id;
+                id++;
+            }
+
+            ds.EnforceConstraints = true;
+
+            ds.WriteXml("dataset.xml", XmlWriteMode.IgnoreSchema);
+            
+            // обновление данных в datagridview1
             string[] namesForWorkers = new string[5] { "ФИО работника", "Дата рождения", "ИНН", "СНИЛС", "Паспортные данные" };
             dataGridView1.DataSource = ds.Worker.DefaultView.ToTable(false, "full_name", "date_of_birth", "INN", "SNILS", "pasport_data");
 
@@ -162,12 +178,27 @@ namespace TRBD_Task_1_2
 
         private void deletejobbtn_Click(object sender, EventArgs e)
         {
-            DeleteJob deletejob = new DeleteJob();
-            deletejob.ShowDialog();
-
             ds ds = new ds();
             ds.ReadXml("dataset.xml", XmlReadMode.IgnoreSchema);
 
+            DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
+            ds.Job.Rows.RemoveAt(selectedRow.Index);
+
+            // обновление id
+            // отключаю ограничения, чтобы можно было выставить id без ошибок об уникальности
+            ds.EnforceConstraints = false;
+
+            int id = 0;
+
+            foreach (DataRow row in ds.Job.Rows)
+            {
+                row["ID_Job"] = id;
+                id++;
+            }
+
+            ds.EnforceConstraints = true;
+
+            ds.WriteXml("dataset.xml", XmlWriteMode.IgnoreSchema);
 
             string[] namesForJobs = new string[3] { "Начало работы", "Конец работы", "Описание" };
             dataGridView2.DataSource = ds.Job.DefaultView.ToTable(false, "start_date", "end_date", "description");
