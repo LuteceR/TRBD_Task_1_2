@@ -1,40 +1,33 @@
 <?xml version="1.0" standalone="yes"?>
 <ds xmlns="http://tempuri.org/ds.xsd">
   <Worker>
-    <ID_Worker>1</ID_Worker>
-    <full_name>Данилова Анна Петровна</full_name>
-    <date_of_birth>09-05-2005</date_of_birth>
-    <INN>325236547658</INN>
-    <SNILS>98708996764</SNILS>
+    <ID_Worker>0</ID_Worker>
+    <full_name>Кейт</full_name>
+    <date_of_birth>22-02-2004</date_of_birth>
+    <INN>222222222222</INN>
+    <SNILS>22222222222</SNILS>
     <pasport_data>2222 222222</pasport_data>
   </Worker>
   <Worker>
     <ID_Worker>2</ID_Worker>
-    <full_name>Бувина Катерина Силковна</full_name>
-    <date_of_birth>23-06-2007</date_of_birth>
+    <full_name>Вай</full_name>
+    <date_of_birth>01-01-1911</date_of_birth>
     <INN>111111111111</INN>
     <SNILS>11111111111</SNILS>
-    <pasport_data>1111 111111</pasport_data>
+    <pasport_data>1111 111112</pasport_data>
   </Worker>
   <Job>
-    <ID_Job>0</ID_Job>
-    <ID_Worker>2</ID_Worker>
-    <start_date>01-01-1943</start_date>
-    <end_date>01-01-1999</end_date>
-    <description>2143</description>
-  </Job>
-  <Job>
     <ID_Job>1</ID_Job>
-    <ID_Worker>2</ID_Worker>
-    <start_date>01-01-2000</start_date>
-    <end_date>01-01-2000</end_date>
-    <description>1234</description>
+    <ID_Worker>0</ID_Worker>
+    <start_date>11-11-1999</start_date>
+    <end_date>11-12-2000</end_date>
+    <description>12345</description>
   </Job>
   <Job>
-    <ID_Job>4</ID_Job>
+    <ID_Job>2</ID_Job>
     <ID_Worker>2</ID_Worker>
-    <start_date>01-01-1967</start_date>
-    <end_date>01-11-2222</end_date>
-    <description>22234</description>
+    <start_date>01-01-1902</start_date>
+    <end_date>01-01-1902</end_date>
+    <description>1111</description>
   </Job>
 </ds>
